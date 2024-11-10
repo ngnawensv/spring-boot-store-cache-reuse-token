@@ -1,0 +1,17 @@
+spring:
+    application:
+        name: spring-boot-store-cache-reuse-token
+
+    cache:
+        type: caffeine
+    caffeine:
+        cache:
+            #expireAfterWrite=1h: Sets the cache expiration time to 1 hour. Tokens will automatically be removed from the cache after 1 hour.
+            #maximumSize=100: Limits the cache to a maximum of 100 entries.
+            spec: expireAfterWrite=1h,maximumSize=100
+
+management:
+    endpoints:
+        web:
+            exposure:
+                include: caches
